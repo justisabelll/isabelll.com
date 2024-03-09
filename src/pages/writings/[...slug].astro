@@ -1,0 +1,26 @@
+---
+import { getCollection } from 'astro:content';
+import Prose from '../../components/Prose.astro';
+import EssayLayout from '../../layouts/essayLayout.astro';
+
+export async function getStaticPaths() {
+  const essayEntries = await getCollection(
+    'essays',
+    ({ data }) => data.draft === false
+  );
+
+  return essayEntries.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<EssayLayout frontmatter={entry.data}>
+  <Prose>
+    <Content />
+  </Prose>
+</EssayLayout>

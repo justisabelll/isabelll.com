@@ -1,0 +1,49 @@
+---
+const { pageTitle } = Astro.props;
+
+// TODO: add enable and add links for writings and projects
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{pageTitle}</title>
+  </head>
+  <body class="">
+    <nav class="flex justify-between m-4">
+      <ul class="flex gap-4">
+        <li><a href="/" class="">home</a></li>
+      </ul>
+      <ul class="flex gap-4">
+        <li>
+          <a
+            class="hover:text-zinc-400 text-zinc-500 cursor-default line-through disabled"
+            href="">/writings</a
+          >
+        </li>
+        <li>
+          <a
+            class="hover:text-zinc-400 cursor-default line-through disabled text-zinc-500"
+            href="">/projects</a
+          >
+        </li>
+      </ul>
+    </nav>
+    <slot />
+  </body>
+</html>
+
+<!-- <style>
+  body {
+    background: url('/bg1.gif') repeat center center fixed;
+    background-size: cover;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    body {
+      background: none; /* For users who prefer reduced motion */
+    }
+  }
+</style> -->

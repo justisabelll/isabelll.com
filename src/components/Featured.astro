@@ -1,0 +1,28 @@
+<!-- ---
+import { getCollection } from 'astro:content';
+const featuredEssays = await getCollection(
+  'essays',
+  ({ data }) => data.featured === true && data.draft === false
+);
+---
+
+<div class="outline-dashed p-2 rounded-md">
+  <h2 class="text-sm">essays</h2>
+  <div class="flex gap-4">
+    {
+      featuredEssays.map((essay) => (
+        <div>
+          <a
+            class="text-md underline hover:text-zinc-400 "
+            href={`writings/${essay.slug}`}
+          >
+            {essay.data.title}
+          </a>
+        </div>
+      ))
+    }
+  </div>
+  <div class="">
+    <a class="text-sm underline hover:text-zinc-400" href="/writings">more</a>
+  </div>
+</div> -->

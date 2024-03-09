@@ -1,0 +1,30 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/baseLayout.astro';
+const allEssays = await getCollection('essays');
+---
+
+<BaseLayout pageTitle="writings">
+  <div class="max-w-3xl mx-auto py-8">
+    <p class="mb-4 text-md lg:text-2xl xl:text-md">
+      collection of random thoughts about random things
+    </p>
+    <div class="flex flex-col gap-4">
+      {
+        allEssays.map((essay) => (
+          <div>
+            <a
+              class="text-lg lg:text-2xl xl:text-xl underline hover:text-zinc-400 pb-1 "
+              href={`writings/${essay.slug}`}
+            >
+              {essay.data.title}
+            </a>
+            <p class="text-sm lg:text-md xl:text-sm italic">
+              {essay.data.description}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</BaseLayout>
