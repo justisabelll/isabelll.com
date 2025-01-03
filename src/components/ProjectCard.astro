@@ -5,24 +5,36 @@ interface Props {
   title: string;
   description: string;
   url: string;
+  github: string;
   technologies?: { name: string; color: string }[];
 }
 
-const { title, description, url, technologies = [] } = Astro.props;
+const { title, description, url, github, technologies = [] } = Astro.props;
 ---
 
-<li class="">
-  <div class="flex items-center gap-2">
-    <a href={url} class="text-lg text-white underline underline-offset-2">
-      {title}
-    </a>
-    {
-      technologies.map((tech) => (
-        <Badge text={tech.name} color={tech.color as any} />
-      ))
-    }
+<li class="py-2">
+  <div class="flex flex-col gap-2">
+    <div class="flex items-center justify-between">
+      <a
+        href={url}
+        class="text-lg font-medium hover:text-zinc-300 transition-colors"
+      >
+        {title}
+      </a>
+      <a
+        href={github}
+        class="text-zinc-400 hover:text-zinc-300 transition-colors text-sm"
+      >
+        repo
+      </a>
+    </div>
+    <p class="text-sm text-zinc-400">{description}</p>
+    <div class="flex gap-2 flex-wrap">
+      {
+        technologies.map((tech) => (
+          <Badge text={tech.name} color={tech.color as any} />
+        ))
+      }
+    </div>
   </div>
-  <p class="text-sm text-zinc-400">
-    {description}
-  </p>
 </li>
