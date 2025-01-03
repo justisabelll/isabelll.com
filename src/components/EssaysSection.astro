@@ -1,0 +1,21 @@
+---
+import EssayCard from './EssayCard.astro';
+import { getCollection } from 'astro:content';
+
+const essays = await getCollection('essays');
+---
+
+<div>
+  <h2 class="text-2xl font-thin mb-2">Essays</h2>
+  <ul class="space-y-2">
+    {
+      essays.map((essay) => (
+        <EssayCard
+          title={essay.data.title}
+          description={essay.data.description}
+          url={`/essays/${essay.slug}`}
+        />
+      ))
+    }
+  </ul>
+</div>

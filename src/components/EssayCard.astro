@@ -1,0 +1,20 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  url: string;
+  featured?: boolean;
+}
+
+const { title, description, url, featured = false } = Astro.props;
+---
+
+<li>
+  <a href={url} class="text-lg text-white underline underline-offset-2">
+    {title}
+  </a>
+  <p class="text-sm text-zinc-400">
+    {description}
+  </p>
+</li>
+

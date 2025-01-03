@@ -12,26 +12,32 @@ const { pageTitle } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     <title>{pageTitle}</title>
   </head>
-  <body class="">
-    <nav class="flex justify-between m-4">
-      <ul class="flex gap-4">
-        <li><a href="/" class="">home</a></li>
-      </ul>
-      <ul class="flex gap-4">
+  <body class="bg-zinc-900 text-white">
+    <nav class="m-8">
+      <ul
+        class="flex justify-between font-mono text-sm tracking-wider uppercase"
+      >
         <li>
-          <a
-            class="hover:text-zinc-400 text-zinc-500 cursor-default line-through disabled"
-            href="">/writings</a
-          >
+          <a href="/" class="hover:opacity-60 transition-opacity">/home</a>
         </li>
-        <li>
-          <a
-            class="hover:text-zinc-400 cursor-default line-through disabled text-zinc-500"
-            href="">/projects</a
-          >
-        </li>
+        <div class="flex gap-8">
+          <li>
+            <a
+              class="opacity-60 hover:opacity-100 transition-opacity"
+              href="/writings">/writings</a
+            >
+          </li>
+          <li>
+            <!-- <a
+              class="opacity-60 hover:opacity-100 transition-opacity"
+              href="/projects">/projects</a
+            > -->
+          </li>
+        </div>
       </ul>
     </nav>
-    <slot />
+    <main class="mx-auto px-8">
+      <slot />
+    </main>
   </body>
 </html>

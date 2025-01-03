@@ -1,0 +1,28 @@
+---
+import Badge from './Badge.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  url: string;
+  technologies?: { name: string; color: string }[];
+}
+
+const { title, description, url, technologies = [] } = Astro.props;
+---
+
+<li class="">
+  <div class="flex items-center gap-2">
+    <a href={url} class="text-lg text-white underline underline-offset-2">
+      {title}
+    </a>
+    {
+      technologies.map((tech) => (
+        <Badge text={tech.name} color={tech.color as any} />
+      ))
+    }
+  </div>
+  <p class="text-sm text-zinc-400">
+    {description}
+  </p>
+</li>

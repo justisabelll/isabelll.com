@@ -1,0 +1,44 @@
+---
+import ProjectCard from './ProjectCard.astro';
+
+const projects = [
+  {
+    title: 'Daily Planner',
+    description:
+      'An ephemeral planner that remembers your tasks without login.',
+    url: 'https://planner.isabelll.com',
+    technologies: [
+      { name: 'SvelteKit', color: 'gray' },
+      { name: 'MySQL', color: 'gray' },
+      { name: 'Redis', color: 'gray' },
+    ],
+  },
+  {
+    title: 'Museboard',
+    description:
+      'A minimalist inspiration board with restricted admin access and public gallery.',
+    url: 'https://inspo.isabelll.com',
+    technologies: [
+      { name: 'Next 15', color: 'gray' },
+      { name: 'LibSQL', color: 'gray' },
+      { name: 'Uploadthing', color: 'gray' },
+    ],
+  },
+];
+---
+
+<div>
+  <h2 class="text-2xl font-thin mb-2">Projects</h2>
+  <ul class="space-y-4">
+    {
+      projects.map((project) => (
+        <ProjectCard
+          title={project.title}
+          description={project.description}
+          url={project.url}
+          technologies={project.technologies}
+        />
+      ))
+    }
+  </ul>
+</div>

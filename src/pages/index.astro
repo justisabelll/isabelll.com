@@ -1,30 +1,46 @@
 ---
 import BaseLayout from '../layouts/baseLayout.astro';
-// import Featured from '../components/Featured.astro';
-
-// TODO: add featured articles and projects
+import Featured from '../components/Featured.astro';
+import ProjectsSection from '../components/ProjectsSection.astro';
+// import EssaysSection from '../components/EssaysSection.astro';
 ---
 
-<BaseLayout pageTitle="Home">
-  <div class="flex flex-col my-8 items-center px-4 sm:px-8">
-    <div class="flex flex-col gap-4">
-      <div>
-        <h1 class="font-bold font-mono">11 0000 1000</h1>
-        <p class="text-xl">
-          software engineer interested in artificial intelligence and machine
-          learning.
-        </p>
-      </div>
-      <div class="flex gap-4">
-        <a
-          href="http://www.github.com/justisabelll"
-          class="hover:text-zinc-400 underline underline-offset-2">github</a
-        >
-        <a
-          href="http://www.x.com/justisabelll"
-          class="hover:text-zinc-400 underline underline-offset-2">x.com</a
-        >
-      </div>
+<BaseLayout pageTitle="isabelll">
+  <div class="flex flex-col my-8 items-center px-4 sm:px-6 space-y-6">
+    <h1
+      class="text-4xl tracking-tight text-left w-full max-w-2xl font-bold text-white"
+    >
+      Isabell
+    </h1>
+    <p
+      class="text-md tracking-wide leading-6 text-zinc-300 w-full max-w-2xl text-left"
+    >
+      Software engineer exploring ML, AI, and foundational computer science.
+    </p>
+
+    <ul class="flex space-x-4 text-sm text-zinc-300 text-left w-full max-w-2xl">
+      <li>
+        <a href="http://www.github.com/justisabelll" class="hover:text-white">
+          github
+        </a>
+      </li>
+      <li>
+        <a href="http://www.x.com/irdcfrfr" class="hover:text-white"> x.com </a>
+      </li>
+      <li>
+        <a href="https://undeniable.software" class="hover:text-white">
+          undeniable software
+        </a>
+      </li>
+    </ul>
+
+    <!-- Featured Section -->
+    <Featured />
+
+    <!-- Projects and Essays Section -->
+    <div class="w-full max-w-2xl py-8 grid grid-cols-1 md:grid-cols-2 gap-8">
+      <!-- <EssaysSection /> -->
+      <ProjectsSection />
     </div>
   </div>
 </BaseLayout>

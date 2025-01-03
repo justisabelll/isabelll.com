@@ -1,25 +1,15 @@
-import { z, defineCollection } from 'astro:content';
+import { defineCollection, z } from 'astro:content';
 
-// TODO: setup project collection
-
-const essaysCollection = defineCollection({
+const essays = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string(),
     description: z.string(),
-    author: z.enum(['11 0000 1000', 'Other']),
-    date: z.date(),
-    lastModified: z.date(),
-    draft: z.boolean(),
-    featured: z.boolean(),
-    tags: z.array(z.string()),
-    coverImage: z.object({
-      url: z.string(),
-      alt: z.string(),
-    }),
+    featured: z.boolean().default(false),
+    publishDate: z.date(),
   }),
 });
 
 export const collections = {
-  essays: essaysCollection,
+  essays,
 };
